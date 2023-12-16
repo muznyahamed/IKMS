@@ -1,3 +1,9 @@
 streamlit
 langchain_google_genai
 langchain
+os
+base64
+dotenv
+pickle
+PyPDF2
+streamlit_extras

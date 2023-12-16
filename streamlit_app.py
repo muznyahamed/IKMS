@@ -6,8 +6,23 @@ llm = GooglePalm(google_api_key=google_api_key)
 llm.temperature = 0.1
 
 value ="enter your name "
+embeddings_model = GoogleGenerativeAIEmbeddings(google_api_key=google_api_key,model="models/embedding-001")
+
 
 chats=[]
+embeddings = embeddings_model.embed_documents(
+    [
+        "Hi there!",
+        "Oh, hello!",
+        "What's your name?",
+        "My friends call me World",
+        "Hello World!",
+        "hdfsdfhsdfhsjd",
+        "hey",
+        "dhdhhd",
+    ]
+)
+print(len(embeddings))
 
 # Using object notation
 value = st.sidebar.selectbox(
@@ -49,8 +64,9 @@ if "chat_history" not in st.session_state:
     st.session_state["chat_history"] = []
 
 
-st.chat_input("Enter your message", on_submit=chat_actions, key="chat_input")
+chat = st.chat_input("Enter your message", on_submit=chat_actions, key="chat_input")
 
 for i in st.session_state["chat_history"]:
     with st.chat_message(name=i["role"]):
         st.write(i["content"])
+        
