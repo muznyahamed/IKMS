@@ -1,18 +1,24 @@
 import streamlit as st
 
-st.title('This is a title')
+value ="enter your name "
 
-st.button("Reset", type="primary")
-if st.button('Say hello'):
-    st.write('Why hello there')
-else:
-    st.write('Goodbye')
-    
-import streamlit as st
-import pandas as pd
+chats=[]
 
-st.write(1234)
-st.write(pd.DataFrame({
-    'first column': [1, 2, 3, 4],
-    'second column': [10, 20, 30, 40],
-}))
+# Using object notation
+value = st.sidebar.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone")
+)
+
+# Using "with" notation
+with st.sidebar:
+    add_radio = st.radio(
+        "Choose a shipping method",
+        ("Standard (5-15 days)", "Express (2-5 days)")
+    )
+st.write(value)
+chat = st.chat_input("Say something")
+if chat:
+    chats.append(chat)
+    st.write(f"User has sent the following prompt: {chat}")
+    print(chats)
