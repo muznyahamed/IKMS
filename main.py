@@ -21,6 +21,11 @@ import os
 from dotenv import load_dotenv
 import base64
 
+import base64
+
+# Print pickle version
+print(f"pickle version: {base64}")
+
 
 def add_bg_from_local(image_file):
     with open(image_file, "rb") as image_file:

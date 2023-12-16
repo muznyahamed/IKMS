@@ -3,5 +3,5 @@ langchain_google_genai
 langchain
 PyPDF2
 base64
-pickle
+pickle == 4.0
 streamlit_extras
