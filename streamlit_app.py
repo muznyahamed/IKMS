@@ -1,4 +1,4 @@
-#coding part
+
 import streamlit as st
 from streamlit_extras.add_vertical_space import add_vertical_space
 from PyPDF2 import PdfFileReader, PdfFileWriter,PdfReader
@@ -10,16 +10,18 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.callbacks import get_openai_callback
 from langchain.llms import GooglePalm
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
+import pickle
+import os
+import base64
+
+
+
 google_api_key = "AIzaSyAGLqWWGWp5BcpHM9TDXTznVh2_ipOSxf4"
 llm = GooglePalm(google_api_key=google_api_key)
 llm.temperature = 0.1
 
 
 
-import pickle
-import os
-from dotenv import load_dotenv
-import base64
 
 
 def add_bg_from_local(image_file):
@@ -40,7 +42,7 @@ def add_bg_from_local(image_file):
 
 
 
-load_dotenv()
+
 
 #Background images add function
 # def add_bg_from_local(image_file):
@@ -81,7 +83,7 @@ with st.sidebar:
     # add_vertical_space(4)
     # st.write('💡All about pdf based chatbot, created by VK🤗')
 
-load_dotenv()
+
 
 def main():
     st.header("Chat with your pdf file")
